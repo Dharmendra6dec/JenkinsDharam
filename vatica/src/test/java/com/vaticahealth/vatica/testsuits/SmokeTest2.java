@@ -29,3 +29,4 @@ public class SmokeTest2 extends TestAnnotation implements VaticaInterface {
 
 	}
 }
+	
