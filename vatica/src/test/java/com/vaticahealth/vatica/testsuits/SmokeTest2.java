@@ -1,11 +1,16 @@
 package com.vaticahealth.vatica.testsuits;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.vaticahealth.vatica.config.TestAnnotation;
 import com.vaticahealth.vatica.config.VaticaInterface;
 import com.vaticahealth.vatica.utils.CommonCode;
+import com.vaticahealth.vatica.utils.MailConfig;
+import com.vaticahealth.vatica.utils.MonitoringMail;
 
 public class SmokeTest2 extends TestAnnotation implements VaticaInterface {
 
@@ -27,6 +32,16 @@ public class SmokeTest2 extends TestAnnotation implements VaticaInterface {
 	
 		pppTest.verifyPPP_Report_TabOnPPP();
 
+	}
+	
+	@Test(priority = 2)
+	public void QuitDriver() throws AddressException, MessagingException{
+		
+		//send mail
+		MonitoringMail mail = new MonitoringMail();
+		mail.sendMail(MailConfig.server, MailConfig.from, MailConfig.to, MailConfig.subject, MailConfig.messageBody, MailConfig.attachmentPath, MailConfig.attachmentName);
+		//driver.quit();
+		
 	}
 }
 	

@@ -378,6 +378,7 @@ public class PHP {
 		clearSearchField();
 		Thread.sleep(2000);
 		firstName(FirstName);
+		Thread.sleep(5000);
 		searchButton();
 		Thread.sleep(5000);
 	}
