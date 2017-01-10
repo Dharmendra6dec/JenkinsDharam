@@ -349,8 +349,9 @@ public class PHP {
 	}
 
 	public void clearSearchField() {
+		common.implictWait(10);
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

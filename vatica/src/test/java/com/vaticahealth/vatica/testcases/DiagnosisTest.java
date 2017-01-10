@@ -104,7 +104,7 @@ public class DiagnosisTest extends TestAnnotation {
 	/*	diag.EsignSuccessMsg.sendKeys(Keys.TAB);
 		diag.EsignSuccessMsg.sendKeys(Keys.ENTER);*/
 		
-		diag.EsignSuccessOk.click();
+		diag.eSign_Success_OK_Btn_click();
 		
 		Thread.sleep(5000);
 		Assert.assertTrue(driver.getTitle().toString().equals("Vatica Health"), "Incorrect page has been rendered.");

@@ -3,6 +3,7 @@ package com.vaticahealth.vatica.testsuits;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,10 +17,21 @@ public class SmokeTest2 extends TestAnnotation implements VaticaInterface {
 
 	@Test(priority = 1)
 	public void test1() throws Exception {
-		common.implictWait(40);
+		common.implictWait(60);
 		loginTest.tc_Login_1();
-		home.searchHraWithFirstName("Goku");
+		home.searchHraWithFirstName("test");
+		home.GridDiagnosisBtn.click();
+		Thread.sleep(10000);
+		common.explictWaitClickable(30, diag.SaveNextBtn);
+		diag.SaveNextBtn.click();
+		diag.clickSignHra();
+		diag.EsignSuccessMsg.sendKeys(Keys.TAB);
+		diag.EsignSuccessMsg.sendKeys(Keys.ENTER);
+		System.out.println("Done");
+		System.out.println(diag.EsignSuccessMsg.getText());
+		diag.eSign_Success_OK_Btn_click();
 
+		/*
 		home.GridPppBtn.click();
 	
 		pppTest.verifyHeaderOf_PPPTab();
@@ -31,9 +43,11 @@ public class SmokeTest2 extends TestAnnotation implements VaticaInterface {
 		pppTest.verifyDataOn_CommunityBasedResources_TabOnPPP();
 	
 		pppTest.verifyPPP_Report_TabOnPPP();
+		*/
 
 	}
 	
+	/*
 	@Test(priority = 2)
 	public void QuitDriver() throws AddressException, MessagingException{
 		
@@ -42,6 +56,6 @@ public class SmokeTest2 extends TestAnnotation implements VaticaInterface {
 		mail.sendMail(MailConfig.server, MailConfig.from, MailConfig.to, MailConfig.subject, MailConfig.messageBody, MailConfig.attachmentPath, MailConfig.attachmentName);
 		//driver.quit();
 		
-	}
+	}*/
 }
 	

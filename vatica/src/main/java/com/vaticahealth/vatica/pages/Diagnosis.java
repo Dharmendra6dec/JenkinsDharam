@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -119,18 +120,29 @@ public class Diagnosis {
 			}
 
 		}
-		
-		if (lst.size()==2) {
-			System.out.println("List returned 2.");
-			WebElement elle = lst.get(1);
-			Thread.sleep(2000);
-			elle.sendKeys(Keys.TAB);
-			elle.sendKeys(Keys.TAB);
-			Thread.sleep(2000);
-			elle.sendKeys(Keys.ENTER);
-		}
-		// lst.get(2).click();
 
+		if (lst.size() == 2) {
+			System.out.println("List returned 2.");
+
+			Actions act = new Actions(driver);
+			act.sendKeys(Keys.TAB).perform();
+			act.sendKeys(Keys.TAB).perform();
+			act.sendKeys(Keys.ENTER).perform();
+		}
+
+	}
+
+	public void eSign_Success_OK_Btn_click() {
+		try {
+			Thread.sleep(7000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Closing success pop up");
+		Actions act = new Actions(driver);
+		act.sendKeys(Keys.TAB).perform();
+		act.sendKeys(Keys.ENTER).perform();
 	}
 
 }
