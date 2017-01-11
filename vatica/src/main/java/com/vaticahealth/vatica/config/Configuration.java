@@ -23,22 +23,22 @@ public class Configuration {
 	public static WebDriver driver;
 	public static FileInputStream in;
 	public static String URL;
-	public static String broswer;
+	public static String browser;
 	public static String env;
 	public static String emailId;
 	public static String emailPassword;
 	public static String excelFilePath = currentDirec + "/src/test/resources/inputExcel.xls";
 
-	// intializing the broswer driver
+	// Initializing the browser driver
 	public static WebDriver browser() {
 
 		DesiredCapabilities cap = new DesiredCapabilities();
 
 		// invoking mozilla firefox
-		if (broswer.equalsIgnoreCase("mozilla")) {
-
-		//	System.setProperty("webdriver.gecko.driver",
-		//			System.getProperty("user.dir") + "/src/test/resources/geckodriver.exe");
+		if (browser.equalsIgnoreCase("mozilla")) {
+			// System.setProperty("webdriver.gecko.driver",
+			// System.getProperty("user.dir") +
+			// "/src/test/resources/geckodriver.exe");
 
 			FirefoxProfile ffprofile = new FirefoxProfile();
 			ffprofile.setPreference("browser.download.folderList", 2);
@@ -51,8 +51,8 @@ public class Configuration {
 			Reporter.log("Mozilla is envoked");
 
 		}
-		// Invoking Internet Explorer Broswer
-		else if (broswer.equalsIgnoreCase("IE")) {
+		// Invoking Internet Explorer browser
+		else if (browser.equalsIgnoreCase("IE")) {
 
 			cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
 			cap.setCapability(CapabilityType.BROWSER_NAME, "IE");
@@ -66,8 +66,8 @@ public class Configuration {
 			Reporter.log("I.E is invoked");
 
 		}
-		// Invoking the Google Chrome Broswer
-		else if (broswer.equalsIgnoreCase("chrome")) {
+		// Invoking the Google Chrome browser
+		else if (browser.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver",
 					System.getProperty("user.dir") + "/src/test/resources/chromedriver.exe");
 			driver = new ChromeDriver();
@@ -75,8 +75,8 @@ public class Configuration {
 			Reporter.log("Chrome driver is invoked");
 
 		}
-		// Invoking the Safari Broswer
-		else if (broswer.equalsIgnoreCase("Safari")) {
+		// Invoking the Safari browser
+		else if (browser.equalsIgnoreCase("Safari")) {
 			driver = new SafariDriver();
 			driver.manage().window().maximize();
 			Reporter.log("Safari broswer is invoked");
@@ -84,7 +84,7 @@ public class Configuration {
 		}
 
 		// Invoking HTML unit driver
-		else if (broswer.equalsIgnoreCase("html")) {
+		else if (browser.equalsIgnoreCase("html")) {
 			driver = new HtmlUnitDriver();
 			Reporter.log("HTML Unit driver is invoked");
 
@@ -107,6 +107,22 @@ public class Configuration {
 		 * 
 		 * }
 		 */
+		/*
+		 * else if (browser.equalsIgnoreCase("phantomjs")) {
+		 * cap.setJavascriptEnabled(true);
+		 * cap.setCapability(PhantomJSDriverService.
+		 * PHANTOMJS_EXECUTABLE_PATH_PROPERTY, System.getProperty("user.dir") +
+		 * "/src/test/resources/phantomjs.exe");
+		 * 
+		 * System.setProperty("phantomjs.binary.path",
+		 * System.getProperty("user.dir") +
+		 * "/src/test/resources/phantomjs.exe");
+		 * 
+		 * driver = new PhantomJSDriver();
+		 * Reporter.log("GhostDriver is invoked");
+		 * 
+		 * }
+		 */
 
 		return driver;
 
@@ -115,14 +131,14 @@ public class Configuration {
 	static {
 
 		try {
-			// getting the default Enviornment
+			// getting the default Environment
 			if (System.getProperty("env") == null) {
 				filepath = "/src/test/resources/QA-Environment.properties";
 				in = new FileInputStream(System.getProperty("user.dir") + filepath);
 				properties.load(in);
 			}
 
-			// Getting the QA specific Enviornment
+			// Getting the QA specific Environment
 			else if (env.equalsIgnoreCase("qa")) {
 				filepath = "/src/test/resources/QA-Environment.properties";
 				in = new FileInputStream(System.getProperty("user.dir") + filepath);
@@ -130,7 +146,7 @@ public class Configuration {
 				env = properties.getProperty("env");
 
 			}
-			// getting the developer Specific Enviornment
+			// getting the developer Specific Environment
 			else if (env.equalsIgnoreCase("dev")) {
 				filepath = "/src/test/resources/Dev-Environment.properties";
 				in = new FileInputStream(System.getProperty("user.dir") + filepath);
@@ -143,13 +159,13 @@ public class Configuration {
 													// properties files
 			URL = properties.getProperty("URL"); // URL from the properties
 													// files
-			broswer = properties.getProperty("broswer"); // Broswer from the
+			browser = properties.getProperty("browser"); // browser from the
 															// Properties files
 			emailId = properties.getProperty("emailId");
 			emailPassword = properties.getProperty("emailPassword");
 
 			// System.out.println(URL);
-			// System.out.println(broswer);
+			// System.out.println(browser);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
