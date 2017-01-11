@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
 //import org.openqa.selenium.phantomjs.PhantomJSDriver;
 //import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -35,24 +36,33 @@ public class Configuration {
 
 		// invoking mozilla firefox
 		if (broswer.equalsIgnoreCase("mozilla")) {
+
+		//	System.setProperty("webdriver.gecko.driver",
+		//			System.getProperty("user.dir") + "/src/test/resources/geckodriver.exe");
+
 			FirefoxProfile ffprofile = new FirefoxProfile();
-		//	ffprofile.setPreference("browser.download.dir", "C:\\Users\\Lakshya Grover\\Desktop");
 			ffprofile.setPreference("browser.download.folderList", 2);
 			ffprofile.setPreference("browser.helperApps.neverAsk.saveToDisk",
 					"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;" + "application/pdf");
 			ffprofile.setPreference("browser.download.manager.showWhenStarting", false);
-			// ffprofile.setPreference("pdfjs.disabled", false);
 
 			driver = new FirefoxDriver(ffprofile);
+			driver.manage().window().maximize();
 			Reporter.log("Mozilla is envoked");
 
 		}
 		// Invoking Internet Explorer Broswer
 		else if (broswer.equalsIgnoreCase("IE")) {
 
+			cap.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+			cap.setCapability(CapabilityType.BROWSER_NAME, "IE");
+			cap.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+			cap.setCapability("requireWindowFocus", true);
+
 			System.setProperty("webdriver.ie.driver",
 					System.getProperty("user.dir") + "/src/test/resources/IEDriverServer.exe");
-			driver = new InternetExplorerDriver();
+			driver = new InternetExplorerDriver(cap);
+			driver.manage().window().maximize();
 			Reporter.log("I.E is invoked");
 
 		}
@@ -61,12 +71,14 @@ public class Configuration {
 			System.setProperty("webdriver.chrome.driver",
 					System.getProperty("user.dir") + "/src/test/resources/chromedriver.exe");
 			driver = new ChromeDriver();
+			driver.manage().window().maximize();
 			Reporter.log("Chrome driver is invoked");
 
 		}
 		// Invoking the Safari Broswer
 		else if (broswer.equalsIgnoreCase("Safari")) {
 			driver = new SafariDriver();
+			driver.manage().window().maximize();
 			Reporter.log("Safari broswer is invoked");
 
 		}
@@ -79,18 +91,22 @@ public class Configuration {
 		}
 
 		// Invoking Ghostdriver
-	/*	else if (broswer.equalsIgnoreCase("phantomjs")) {
-			cap.setJavascriptEnabled(true);
-			cap.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-					System.getProperty("user.dir") + "/src/test/resources/phantomjs.exe");
-			
-			System.setProperty("phantomjs.binary.path",
-					System.getProperty("user.dir") + "/src/test/resources/phantomjs.exe");
-
-			driver = new PhantomJSDriver();
-			Reporter.log("GhostDriver is invoked");
-
-		}*/
+		/*
+		 * else if (broswer.equalsIgnoreCase("phantomjs")) {
+		 * cap.setJavascriptEnabled(true);
+		 * cap.setCapability(PhantomJSDriverService.
+		 * PHANTOMJS_EXECUTABLE_PATH_PROPERTY, System.getProperty("user.dir") +
+		 * "/src/test/resources/phantomjs.exe");
+		 * 
+		 * System.setProperty("phantomjs.binary.path",
+		 * System.getProperty("user.dir") +
+		 * "/src/test/resources/phantomjs.exe");
+		 * 
+		 * driver = new PhantomJSDriver();
+		 * Reporter.log("GhostDriver is invoked");
+		 * 
+		 * }
+		 */
 
 		return driver;
 

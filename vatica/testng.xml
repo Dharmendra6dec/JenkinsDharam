@@ -5,7 +5,7 @@
 		<classes>
 			<class name="com.vaticahealth.vatica.testsuits.SmokeTest2" />
 		</classes>
-	</test> <!-- Test -->
+	</test>
 	<test name="Test2">
 		<classes>
 			<class name="com.vaticahealth.vatica.testsuits.SmokeTest" />

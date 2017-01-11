@@ -39,6 +39,7 @@ public class TestAnnotation {
 	public void invokeUrl() {
 
 		driver.get(Configuration.invokeUrl());
+	//	driver.manage().window().maximize();
 
 	}
 	/*

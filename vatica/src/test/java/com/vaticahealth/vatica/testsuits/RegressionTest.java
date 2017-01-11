@@ -78,7 +78,7 @@ public class RegressionTest extends TestAnnotation implements VaticaInterface {
 		try {
 			Thread.sleep(3000);
 			invokeUrl();
-			login.logging(logIdSupp, logInvalidPasswordSupp);
+			login.loginWithCorrectCredentials(logIdSupp, logInvalidPasswordSupp);
 			login.loginButton();
 		} catch (InterruptedException e) {
 			StringWriter w = new StringWriter();

@@ -76,7 +76,7 @@ public class Login {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void logging(String Id, String password) {
+	public void loginWithCorrectCredentials(String Id, String password) {
 		String logId1 = Id;
 		String logPassword1 = password;
 		loginId.sendKeys(logId1);

@@ -10,17 +10,17 @@ import com.vaticahealth.vatica.pages.Login;
 import com.vaticahealth.vatica.utils.CommonCode;
 
 public class LoginTest extends TestAnnotation {
-//	CommonCode common = new CommonCode();
+	// CommonCode common = new CommonCode();
 
 	// Login in to the application with correct credentials and select the
 	// website 'Plus' from the dropdown of sites.
 	public void tc_Login_1() throws InterruptedException, InvocationTargetException {
 
 		common.implictWait(20);
-		login.logging(logIdSupp, logPassowrdSupp);
+		login.loginWithCorrectCredentials(logIdSupp, logPassowrdSupp);
 		login.loginButton();
 		Thread.sleep(5000);
-		login.websiteDropDown(intff);
+		common.selectByValue(login.webSiteOption, 2);
 		// Thread.sleep(3000);
 		login.selectWebsiteButton();
 
@@ -36,7 +36,7 @@ public class LoginTest extends TestAnnotation {
 		login.technicalSupportLink(common.readExcel("hra", "Technical Support Title"));
 	}
 
-	// Login memeory check
+	// Login memory check
 	public void tc_Login_4() throws InterruptedException {
 		login.loginFiller();
 		login.rememberMeCheckClick();
