@@ -22,6 +22,7 @@ public class HraTest extends TestAnnotation {
 
 		common.implictWait(10);
 		Thread.sleep(5000);
+		hra.BiometricsLink.click();
 		hra.selectByValue(hra.Gender, Integer.parseInt(common.readExcel("hra", "Gender")));
 		hra.AspirinYes.click();
 		hra.HighBloodPressureMedYes.click();

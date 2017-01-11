@@ -43,6 +43,7 @@ public class SmokeTest extends TestAnnotation implements VaticaInterface {
 	@Test(priority = 4, description = "hra completion ")
 	public void smokeTest_hra_completion() throws InvocationTargetException, InterruptedException {
 		common.implictWait(20);
+		hraTest.tc_Hra_Biometrics_1();
 		hraTest.tc_Hra_Bi_1();
 		hraTest.tc_Hra_Pwl_1();
 		hraTest.tc_Hra_Sh_1();
@@ -51,7 +52,7 @@ public class SmokeTest extends TestAnnotation implements VaticaInterface {
 		hraTest.tc_Hra_ROS_1();
 		hraTest.tc_Hra_SelfAssessment_1();
 		hraTest.tc_Hra_FallRisk_1();
-		hraTest.tc_Hra_Biometrics_1();
+		
 		hraTest.tc_Hra_CognitiveAssessment_1();
 	}
 
@@ -81,7 +82,7 @@ public class SmokeTest extends TestAnnotation implements VaticaInterface {
 
 	}
 	
-	@Test(priority = 8, description = "Send email report")
+	@Test(priority = 8, description = "Send email report",alwaysRun=false, enabled=false)
 	public void QuitDriver() throws AddressException, MessagingException{
 		
 		//send mail
