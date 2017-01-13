@@ -36,18 +36,20 @@ public class Configuration {
 
 		// invoking mozilla firefox
 		if (browser.equalsIgnoreCase("mozilla")) {
+
 			// System.setProperty("webdriver.gecko.driver",
 			// System.getProperty("user.dir") +
 			// "/src/test/resources/geckodriver.exe");
 
 			FirefoxProfile ffprofile = new FirefoxProfile();
-			ffprofile.setPreference("browser.download.folderList", 2);
+			ffprofile.setPreference("browser.download.folderList",2);
+			ffprofile.setPreference("browser.download.manager.showWhenStarting",false);
+			ffprofile.setPreference("browser.download.dir",System.getProperty("user.dir")+"\\downloads");
 			ffprofile.setPreference("browser.helperApps.neverAsk.saveToDisk",
-					"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;" + "application/pdf");
-			ffprofile.setPreference("browser.download.manager.showWhenStarting", false);
+					"text/csv,application/x-msexcel,application/excel,application/x-excel,"
+					+ "application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml");
 
 			driver = new FirefoxDriver(ffprofile);
-			driver.manage().window().maximize();
 			Reporter.log("Mozilla is envoked");
 
 		}
@@ -62,7 +64,6 @@ public class Configuration {
 			System.setProperty("webdriver.ie.driver",
 					System.getProperty("user.dir") + "/src/test/resources/IEDriverServer.exe");
 			driver = new InternetExplorerDriver(cap);
-			driver.manage().window().maximize();
 			Reporter.log("I.E is invoked");
 
 		}
@@ -71,14 +72,12 @@ public class Configuration {
 			System.setProperty("webdriver.chrome.driver",
 					System.getProperty("user.dir") + "/src/test/resources/chromedriver.exe");
 			driver = new ChromeDriver();
-			driver.manage().window().maximize();
 			Reporter.log("Chrome driver is invoked");
 
 		}
 		// Invoking the Safari browser
 		else if (browser.equalsIgnoreCase("Safari")) {
 			driver = new SafariDriver();
-			driver.manage().window().maximize();
 			Reporter.log("Safari broswer is invoked");
 
 		}

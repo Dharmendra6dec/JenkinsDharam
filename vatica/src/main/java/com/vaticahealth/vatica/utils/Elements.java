@@ -74,6 +74,9 @@ public  class Elements{
 	public static final String VISITDATECOLUMNGRID = "//span[text()='Visit Date']";
 	public static final String PAGETOFIRSTBUTTON = "//button[@title='Page to first']"; //done
 	
+	public static final String Home_Provider_Resources_Btn = "//a[text()='Provider Resources']";
+	public static final String Home_Training_Resources_Btn = "//a[text()='Training Resources']";
+	
 	public static final String LOGINBTN="//*[@id='btn-login']"; //done
 	public static final String WELCOMEMSG="//*[contains(text(),'Welcome,')]";
 	public static final String ITEMSPERPAGE="//select[@class='ng-pristine ng-untouched ng-valid']";
@@ -86,6 +89,10 @@ public  class Elements{
 	public static final String VISITSTATUSONGRID = ".//*[contains(@id,'-grid-container')]/div[2]/div/div/div/div[4]/div/span";
 	public static final String VISITTYPEONGRID = ".//*[contains(@id,'-grid-container')]/div[2]/div/div/div/div[4]/div/small";
 	public static final String VISITSIGNONGRID = ".//*[contains(@id,'-grid-container')]/div[2]/div/div/div/div[4]/div/small/i";
+	
+	public static final String Login_PrivacyPolicy_text= "//h3[text()='PRIVACY POLICY']";
+	public static final String Login_PrivacyPolicy_Close_Btn= "//button[@class='close']";
+	public static final String Login_TechSupport_text= "html/body/div[1]/div/div/div/div[1]/h4";
 	
 	
 	
@@ -292,6 +299,10 @@ public  class Elements{
 			
 		// 	Screening Schedule
 			public static final String Screening_Schedule_img = ".//*[@id='schedule']/div[1]/img";
+			public static final String Screening_Schedule_Suggested_Tests_text = "//span[@class='ng-binding ng-scope']";
+			public static final String Screening_Schedule_Colonoscopy_Next_Date_text = ".//*[@id='schedule']/table/tbody/tr[2]/td[3]";
+			public static final String Screening_Schedule_Diabetes_Next_Date_text = ".//*[@id='schedule']/table/tbody/tr[3]/td[3]";
+			
 			
 		// Community Based Resources
 			public static final String Community_Based_Resources_img = ".//*[@id='resources']/div/img";
@@ -299,4 +310,21 @@ public  class Elements{
 		// PPP Report
 			public static final String PPP_Report_Header_text = ".//*[@id='pageContainer1']/xhtml:div[2]/xhtml:div[9]";
 			public static final String PPP_Report_PatientName_text = ".//*[@id='pageContainer1']/xhtml:div[2]/xhtml:div[1]";
+			
+	// Training Resources Tab
+			public static final String TR_Training_Tools_text =	".//*[@id='training']/h4";
+			public static final String TR_FAQ_Link_link = ".//*[@id='training']/dl/dt[1]/a";
+				public static final String TR_FAQ_ExpectedText = ".//*[@id='pageContainer1']/xhtml:div[2]/xhtml:div[119]";
+			public static final String TR_HRA_HardCopy_Link = ".//*[@id='training']/dl/dt[3]/a";
+			public static final String TR_Patient_Questionaire_Link = ".//*[@id='training']/dl/dt[4]/a";
+			public static final String TR_Flyer1_Link = ".//*[@id='training']/dl/dt[5]/a";
+			public static final String TR_Flyer2_Link = ".//*[@id='training']/dl/dt[6]/a";
+			public static final String TR_UserManual_Link = ".//*[@id='training']/dl/dt[8]/a";
+			public static final String TR_TechTips_Guide_Link = ".//*[@id='training']/dl/dt[10]/a";
+			public static final String TR_QUickTips_Guide_Link = ".//*[@id='training']/dl/dt[12]/a";
+			public static final String TR_Release_Notes_Link = ".//*[@id='training']/dl/dt[14]/a";
+			
+			
+			
+			
 }

@@ -229,14 +229,6 @@ public class Hra {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void selectByValue(WebElement elle, int sel) throws InterruptedException {
-		common.implictWait(10);
-		Thread.sleep(5000);
-		Select select = new Select(elle);
-		select.selectByIndex(sel);
-
-	}
-	
 	public void clickSaveButton() {
 		Hra_SaveNext_Btn.click();
 	}

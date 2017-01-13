@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import com.vaticahealth.vatica.config.Configuration;
+import com.vaticahealth.vatica.utils.Button;
 import com.vaticahealth.vatica.utils.CommonCode;
 import com.vaticahealth.vatica.utils.Elements;
 import com.vaticahealth.vatica.utils.Button;
@@ -72,6 +73,15 @@ public class Login {
 
 	@FindBy(xpath = Elements.inValidLoginMessgae)
 	public WebElement invalidLoginMess;
+	
+	@FindBy(xpath = Elements.Login_PrivacyPolicy_text)
+	public WebElement Login_PrivacyPolicy_text;
+
+	@FindBy(xpath = Elements.Login_PrivacyPolicy_Close_Btn)
+	public WebElement Login_PrivacyPolicy_Close_Btn;
+
+	@FindBy(xpath = Elements.Login_TechSupport_text)
+	public WebElement Login_TechSupport_text;
 
 	public Login() {
 		PageFactory.initElements(driver, this);

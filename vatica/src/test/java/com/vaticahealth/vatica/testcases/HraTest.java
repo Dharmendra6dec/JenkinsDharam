@@ -22,15 +22,15 @@ public class HraTest extends TestAnnotation {
 
 		common.implictWait(10);
 		Thread.sleep(5000);
-		hra.BiometricsLink.click();
-		hra.selectByValue(hra.Gender, Integer.parseInt(common.readExcel("hra", "Gender")));
+		hra.BackgroundInformationLink.click();
+		common.selectByValue(hra.Gender, Integer.parseInt(common.readExcel("hra", "Gender")));
 		hra.AspirinYes.click();
 		hra.HighBloodPressureMedYes.click();
 		hra.CreateHra_AddMedicine_Btn.click();
 		hra.AddMedicine_Name.sendKeys(common.readExcel("hra", "Medicine to add"));
 		hra.AddMedicineDose.sendKeys(common.readExcel("hra", "Medicine dose"));
-		hra.selectByValue(hra.AddMedicineUnit, Integer.parseInt(common.readExcel("hra", "Medicine Unit")));
-		hra.selectByValue(hra.AddMedicineFrequency, Integer.parseInt(common.readExcel("hra", "Medicine Frequency")));
+		common.selectByValue(hra.AddMedicineUnit, Integer.parseInt(common.readExcel("hra", "Medicine Unit")));
+		common.selectByValue(hra.AddMedicineFrequency, Integer.parseInt(common.readExcel("hra", "Medicine Frequency")));
 		hra.AddMedicineFrequency.sendKeys(Keys.TAB);
 
 	}

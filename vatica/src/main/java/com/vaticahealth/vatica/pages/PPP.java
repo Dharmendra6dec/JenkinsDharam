@@ -70,6 +70,15 @@ public class PPP {
 	@FindBy(xpath=Elements.PPP_Report_PatientName_text)
 	public WebElement PPP_Report_PatientName_text;
 	
+	@FindBy(xpath=Elements.Screening_Schedule_Suggested_Tests_text)
+	public List<WebElement> Screening_Schedule_Suggested_Tests_text;
+	
+	@FindBy(xpath=Elements.Screening_Schedule_Colonoscopy_Next_Date_text)
+	public WebElement Screening_Schedule_Colonoscopy_Next_Date_text;
+	
+	@FindBy(xpath=Elements.Screening_Schedule_Diabetes_Next_Date_text )
+	public WebElement  Screening_Schedule_Diabetes_Next_Date_text ;
+	
 	
 	public PPP() {
 		PageFactory.initElements(driver, this);

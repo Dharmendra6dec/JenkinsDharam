@@ -7,6 +7,7 @@ import com.vaticahealth.vatica.testcases.LoginTest;
 import com.vaticahealth.vatica.testcases.PHPTest;
 import com.vaticahealth.vatica.testcases.PPPTest;
 import com.vaticahealth.vatica.testcases.TestsTest;
+import com.vaticahealth.vatica.testcases.TrainingResourcesTest;
 import com.vaticahealth.vatica.utils.CommonCode;
 
 public interface VaticaInterface {
@@ -20,5 +21,6 @@ public interface VaticaInterface {
 	TestsTest testTest = new TestsTest();
 	DiagnosisTest diagTest = new DiagnosisTest();
 	PPPTest pppTest = new PPPTest();
+	TrainingResourcesTest trainTest = new TrainingResourcesTest();
 
 }
