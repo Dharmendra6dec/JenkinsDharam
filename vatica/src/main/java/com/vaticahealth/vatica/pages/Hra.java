@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.vaticahealth.vatica.config.Configuration;
 import com.vaticahealth.vatica.utils.CommonCode;
 import com.vaticahealth.vatica.utils.Elements;
+import com.vaticahealth.vatica.utils.Button;
 
 public class Hra {
 
@@ -98,8 +99,8 @@ public class Hra {
 	@FindBy(xpath = Elements.HIGHBLOODPRESSUREMEDYES)
 	public WebElement HighBloodPressureMedYes;
 
-	@FindBy(xpath = Elements.ADDMEDICINE)
-	public WebElement AddMedicine;
+	@FindBy(xpath = Button.CreateHra_AddMedicine_Btn)
+	public WebElement CreateHra_AddMedicine_Btn;
 
 	@FindBy(xpath = Elements.ADDMEDICINENAME)
 	public WebElement AddMedicine_Name;
@@ -189,8 +190,8 @@ public class Hra {
 
 	// Review of Symptoms(ROS) Page
 
-	@FindBy(xpath = Elements.ROSALLNO)
-	public WebElement ROSAllNo;
+	@FindBy(xpath = Button.Hra_ReviewOfSymptomsAllNo_Button)
+	public WebElement Hra_ReviewOfSymptomsAllNo_Button;
 
 	// Self-Assessment Page
 
@@ -202,8 +203,8 @@ public class Hra {
 
 	// Fall Risk Page
 
-	@FindBy(xpath = Elements.FALLRISKALLNO)
-	public WebElement FallRiskAllNo;
+	@FindBy(xpath = Button.Hra_FallRiskAllNo_Btn)
+	public WebElement Hra_FallRiskAllNo_Btn;
 
 	// Cognitive Assessment Page
 
@@ -218,11 +219,11 @@ public class Hra {
 	@FindBy(xpath = Elements.VISITDATEBIO)
 	public WebElement VisitDateBio;
 
-	@FindBy(xpath = Elements.SAVE_NEXTBTN)
-	public WebElement Save_NextBtn;
+	@FindBy(xpath = Button.Hra_SaveNext_Btn)
+	public WebElement Hra_SaveNext_Btn;
 
-	@FindBy(xpath = Elements.WARNINGCLOSEBUTTON)
-	public WebElement WarningCloseButton;
+	@FindBy(xpath = Button.Hra_WARNINGCLOSE_Btn)
+	public WebElement Hra_WARNINGCLOSE_Btn;
 
 	public Hra() {
 		PageFactory.initElements(driver, this);
@@ -237,7 +238,7 @@ public class Hra {
 	}
 	
 	public void clickSaveButton() {
-		Save_NextBtn.click();
+		Hra_SaveNext_Btn.click();
 	}
 
 	public void FirstName(String name) {
@@ -262,8 +263,8 @@ public class Hra {
 	// Closing the Warning on HRA if it appears
 	public void warningPopUpClose() throws InterruptedException {
 		Thread.sleep(5000);
-		if (WarningCloseButton.isDisplayed()) {
-			WarningCloseButton.click();
+		if (Hra_WARNINGCLOSE_Btn.isDisplayed()) {
+			Hra_WARNINGCLOSE_Btn.click();
 		}
 	}
 
@@ -300,7 +301,7 @@ public class Hra {
 		Thread.sleep(5000);
 		VisitDateBio.clear();
 		VisitDateBio(NewVisitdate);
-		Save_NextBtn.click();
+		Hra_SaveNext_Btn.click();
 		Thread.sleep(5000);
 		ErrorListClose.click();
 		Thread.sleep(2000);

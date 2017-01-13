@@ -18,7 +18,7 @@ public class TestsTest extends TestAnnotation{
 		System.out.println("Lipid profile test rejected");
 		test.PreventiveServiceSelectAll.click();
 		test.OtherClinicalTestSelectAll.click();
-		test.AddTest.click();
+		test.Tests_AddTest_Btn.click();
 		test.VitaminDTest.click();
 		test.AddSelectedTest.click();
 	}

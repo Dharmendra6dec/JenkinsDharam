@@ -11,6 +11,7 @@ import org.testng.Assert;
 import com.vaticahealth.vatica.config.Configuration;
 import com.vaticahealth.vatica.utils.CommonCode;
 import com.vaticahealth.vatica.utils.Elements;
+import com.vaticahealth.vatica.utils.Button;
 
 public class Login {
 	CommonCode common = new CommonCode();
@@ -24,23 +25,23 @@ public class Login {
 	@FindBy(xpath = Elements.loginPassword)
 	public WebElement loginPassword;
 
-	@FindBy(xpath = Elements.loginButton)
-	public WebElement loginbutton;
+	@FindBy(xpath = Button.Login_Login_Btn)
+	public WebElement Login_Login_Btn;
 
 	@FindBy(xpath = Elements.webSiteOption)
 	public WebElement webSiteOption;
 
-	@FindBy(xpath = Elements.websiteSubmission)
-	public WebElement websiteSubmission;
+	@FindBy(xpath = Button.Login_SelectWebsite_Btn)
+	public WebElement Login_SelectWebsite_Btn;
 
-	@FindBy(xpath = Elements.resetButton)
-	public WebElement resetButton;
+	@FindBy(xpath = Button.Login_Reset_Btn)
+	public WebElement Login_Reset_Btn;
 
 	@FindBy(xpath = Elements.resetEmailId)
 	public WebElement resetEmailId;
 
-	@FindBy(xpath = Elements.submitRequest)
-	public WebElement submitRequest;
+	@FindBy(xpath = Button.Login_SubmitRequest_Btn)
+	public WebElement Login_SubmitRequest_Btn;
 
 	@FindBy(xpath = Elements.resetPasswordMessage)
 	public WebElement resetPasswordMessage;
@@ -60,14 +61,14 @@ public class Login {
 	@FindBy(xpath = Elements.TECHSUPPORTITLE)
 	public WebElement techSupportTitle;
 
-	@FindBy(xpath = Elements.PRIVACYPOLICYCLOSE)
-	public WebElement closePrivacyPolicy;
+	@FindBy(xpath = Button.Login_PrivacyPolicyClose_Btn)
+	public WebElement Login_PrivacyPolicyClose_Btn;
 
 	@FindBy(xpath = Elements.CANCELTECHSUPPORT)
 	public WebElement cancelTechSupport;
 
-	@FindBy(xpath = Elements.OKBUTTON)
-	public WebElement okButton;
+	@FindBy(xpath = Button.Login_OK_Btn)
+	public WebElement Login_OK_Btn;
 
 	@FindBy(xpath = Elements.inValidLoginMessgae)
 	public WebElement invalidLoginMess;
@@ -83,12 +84,12 @@ public class Login {
 		loginPassword.sendKeys(logPassword1);
 	}
 
-	public void loginButton() {
-		loginbutton.click();
+	public void Login_Login_Btn() {
+		Login_Login_Btn.click();
 	}
 
-	public void resetbutton() {
-		resetButton.click();
+	public void Login_Reset_Btn() {
+		Login_Reset_Btn.click();
 	}
 
 	public void websiteDropDown(int websiteSelectionSupp) throws InterruptedException {
@@ -101,15 +102,15 @@ public class Login {
 	}
 
 	public void selectWebsiteButton() {
-		common.explictWaitClickable(20, websiteSubmission);
-		websiteSubmission.click();
+		common.explictWaitClickable(20, Login_SelectWebsite_Btn);
+		Login_SelectWebsite_Btn.click();
 	}
 
 	public void resetPassword(String emailId, String passwordResetMessage) {
 		common.implictWait(10);
-		resetButton.click();
+		Login_Reset_Btn.click();
 		resetEmailId.sendKeys(emailId);
-		submitRequest.click();
+		Login_SubmitRequest_Btn.click();
 		Assert.assertEquals(resetPasswordMessage.getText(), passwordResetMessage);
 		try {
 			Thread.sleep(1000);
@@ -117,7 +118,7 @@ public class Login {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		okButton.click();
+		Login_OK_Btn.click();
 
 	}
 
@@ -136,7 +137,7 @@ public class Login {
 	}
 
 	public void closePrivacyPolicy() {
-		closePrivacyPolicy.click();
+		Login_PrivacyPolicyClose_Btn.click();
 	}
 
 	public void technicalSupportLink(String techSupportInputText) throws InterruptedException {
@@ -144,7 +145,7 @@ public class Login {
 		Thread.sleep(5000);
 		techSupportLink.click();
 		common.explictWaitPresence(5, By.xpath(Elements.TECHSUPPORTITLE));
-		//Assert.assertTrue(techSupportTitle.getText().equals(techSupportTitle),"Technical Support title doesnot match");
+		//Assert.assertTrue(techSupportTitle.getText().equals(techSupportTitle),"Technical Support title does not match");
 		Assert.assertEquals(techSupportTitle.getText(), techSupportInputText);
 		cancelTechSupport.click();
 	}

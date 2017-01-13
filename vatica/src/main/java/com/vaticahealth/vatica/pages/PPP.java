@@ -12,6 +12,7 @@ import com.sun.jna.platform.win32.OaIdl.ELEMDESC;
 import com.vaticahealth.vatica.config.Configuration;
 import com.vaticahealth.vatica.utils.CommonCode;
 import com.vaticahealth.vatica.utils.Elements;
+import com.vaticahealth.vatica.utils.Button;
 
 public class PPP {
 
@@ -21,8 +22,8 @@ public class PPP {
 	@FindBy(xpath= Elements.PPP_Header_text)
 	public WebElement PPP_Header_text;
 	
-	@FindBy(xpath = Elements.Print_On__PPP_btn)
-	public WebElement Print_On__PPP_btn;
+	@FindBy(xpath = Button.PPP_Print_btn)
+	public WebElement PPP_Print_btn;
 	
 	@FindBy(xpath = Elements.Introduction_link)
 	public WebElement Introduction_link;

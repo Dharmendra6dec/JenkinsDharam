@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.vaticahealth.vatica.config.Configuration;
 import com.vaticahealth.vatica.utils.CommonCode;
 import com.vaticahealth.vatica.utils.Elements;
+import com.vaticahealth.vatica.utils.Button;
 
 public class Tests {
 	CommonCode common = new CommonCode();
@@ -34,8 +35,8 @@ public class Tests {
 	@FindBy(xpath = Elements.REJECTEDTAB)
 	public WebElement RejectTab;
 
-	@FindBy(xpath = Elements.ADDTEST)
-	public WebElement AddTest;
+	@FindBy(xpath = Button.Tests_AddTest_Btn)
+	public WebElement Tests_AddTest_Btn;
 
 	@FindBy(xpath = Elements.VITAMINDTEST)
 	public WebElement VitaminDTest;

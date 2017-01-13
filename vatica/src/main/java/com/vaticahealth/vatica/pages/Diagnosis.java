@@ -13,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.vaticahealth.vatica.config.Configuration;
 import com.vaticahealth.vatica.utils.CommonCode;
 import com.vaticahealth.vatica.utils.Elements;
+import com.vaticahealth.vatica.utils.Button;
 
 public class Diagnosis {
 
@@ -28,23 +29,23 @@ public class Diagnosis {
 	@FindBy(xpath = Elements.ACCEPTEDCOUNT)
 	public WebElement AcceptedCount;
 
-	@FindBy(xpath = Elements.DISEASE1ACCEPT)
-	public WebElement Disease1Accept;
+	@FindBy(xpath = Button.Diagnosis_Disease1Accept_Btn)
+	public WebElement Diagnosis_Disease1Accept_Btn;
 
-	@FindBy(xpath = Elements.DISEASE2ACCEPT)
-	public WebElement Disease2Accept;
+	@FindBy(xpath = Button.Diagnosis_Disease2Accept_Btn)
+	public WebElement Diagnosis_Disease2Accept_Btn;
 
-	@FindBy(xpath = Elements.DISEASE3ACCEPT)
-	public WebElement Disease3Accept;
+	@FindBy(xpath = Button.Diagnosis_Disease3Accept_Btn)
+	public WebElement Diagnosis_Disease3Accept_Btn;
 
-	@FindBy(xpath = Elements.DISEASE4REJECT)
-	public WebElement Disease4Reject;
+	@FindBy(xpath = Button.Diagnosis_Disease4Reject_Btn)
+	public WebElement Diagnosis_Disease4Reject_Btn;
 
-	@FindBy(xpath = Elements.DISEASE5REJECT)
-	public WebElement Disease5Reject;
+	@FindBy(xpath = Button.Diagnosis_Disease5Reject_Btn)
+	public WebElement Diagnosis_Disease5Reject_Btn;
 
-	@FindBy(xpath = Elements.DISEASE6REJECT)
-	public WebElement Disease6Reject;
+	@FindBy(xpath = Button.Diagnosis_Disease6Reject_Btn)
+	public WebElement Diagnosis_Disease6Reject_Btn;
 
 	@FindBy(xpath = Elements.CONDITIONNOTEXIST)
 	public WebElement ConditionsNotExist;
@@ -52,14 +53,14 @@ public class Diagnosis {
 	@FindBy(xpath = Elements.REJECTCOMMENTS)
 	public WebElement RejectComments;
 
-	@FindBy(xpath = Elements.CONFIRMREJECTBTN)
-	public WebElement ConfirmRejectButton;
+	@FindBy(xpath = Button.Diagnosis_ConfirmReject_Btn)
+	public WebElement Diagnosis_ConfirmReject_Btn;
 
 	@FindBy(xpath = Elements.FIRSTICDCODESELECTION)
 	public WebElement FirstIcdCodeSelect;
 
-	@FindBy(xpath = Elements.ACCEPTNEXTBTN)
-	public WebElement AcceptNextBtn;
+	@FindBy(xpath = Button.Diagnosis_AcceptNext_Btn)
+	public WebElement Diagnosis_AcceptNext_Btn;
 
 	@FindBy(xpath = Elements.CONTINUETOMONITORCB)
 	public WebElement ContinueToMonitorCB;
@@ -73,8 +74,8 @@ public class Diagnosis {
 	@FindBy(xpath = Elements.INREMISSIONCB)
 	public WebElement InRemissionCB;
 
-	@FindBy(xpath = Elements.SAVE_NEXTBTN)
-	public WebElement SaveNextBtn;
+	@FindBy(xpath = Button.Diagnosis_SaveNext_Btn)
+	public WebElement Diagnosis_SaveNext_Btn;
 
 	@FindBy(xpath = Elements.CONTINUECURRENTTREATMENTCB)
 	public WebElement ContinueCurrentTreatmentCB;
@@ -88,15 +89,15 @@ public class Diagnosis {
 	@FindBy(xpath = Elements.ESIGNVERIFICATIONMSG)
 	public WebElement EsignSuccessMsg;
 
-	@FindBy(xpath = Elements.ESIGNSUCCESSOK)
-	public WebElement EsignSuccessOk;
+	@FindBy(xpath = Button.ESign_SuccessOk_Btn)
+	public WebElement ESign_SuccessOk_Btn;
 
 	/*
 	 * @FindBy(xpath= Elements.SIGNBTN) public WebElement SignBtn;
 	 */
 
-	@FindBy(xpath = Elements.MEATSAVECHANGESBTN)
-	public WebElement MeatSaveChangesBtn;
+	@FindBy(xpath = Button.Meat_SaveChanges_Btn)
+	public WebElement Meat_SaveChanges_Btn;
 
 	public Diagnosis() {
 		PageFactory.initElements(driver, this);
@@ -104,7 +105,7 @@ public class Diagnosis {
 
 	// Click on the Sign HRA button
 	public void clickSignHra() throws InterruptedException {
-		List<WebElement> lst = driver.findElements(By.xpath(Elements.SIGNBTN));
+		List<WebElement> lst = driver.findElements(By.xpath(Button.ESign_ESign_Btn));
 		System.out.println(lst.size());
 
 		for (int i = 0; i < lst.size(); i++) {

@@ -14,28 +14,28 @@ public class DiagnosisTest extends TestAnnotation {
 	public void tc_dt_1() throws InterruptedException {
 		common.implictWait(10);
 		Thread.sleep(10000);
-		diag.Disease6Reject.click();
+		diag.Diagnosis_Disease6Reject_Btn.click();
 		Thread.sleep(5000);
 		diag.ConditionsNotExist.click();
 		diag.RejectComments.sendKeys("Incorrect Disease");
-		diag.ConfirmRejectButton.click();
+		diag.Diagnosis_ConfirmReject_Btn.click();
 
-		diag.Disease5Reject.click();
+		diag.Diagnosis_Disease5Reject_Btn.click();
 		Thread.sleep(5000);
 		diag.ConditionsNotExist.click();
 		diag.RejectComments.sendKeys("Incorrect Disease");
-		diag.ConfirmRejectButton.click();
+		diag.Diagnosis_ConfirmReject_Btn.click();
 
-		diag.Disease4Reject.click();
+		diag.Diagnosis_Disease4Reject_Btn.click();
 		Thread.sleep(5000);
 		diag.ConditionsNotExist.click();
 		diag.RejectComments.sendKeys("Incorrect Disease");
-		diag.ConfirmRejectButton.click();
+		diag.Diagnosis_ConfirmReject_Btn.click();
 
-		diag.Disease3Accept.click();
+		diag.Diagnosis_Disease3Accept_Btn.click();
 		Thread.sleep(5000);
 		diag.FirstIcdCodeSelect.click();
-		diag.AcceptNextBtn.click();
+		diag.Diagnosis_AcceptNext_Btn.click();
 		Thread.sleep(5000);
 		diag.ContinueToMonitorCB.click();
 		diag.EkgCB.click();
@@ -45,12 +45,12 @@ public class DiagnosisTest extends TestAnnotation {
 		diag.ContinueCurrentTreatmentCB.click();
 		diag.MeatMedicationCB.click();
 		diag.MeatComments.sendKeys("This is a test comment.");
-		diag.MeatSaveChangesBtn.click();
+		diag.Meat_SaveChanges_Btn.click();
 
-		diag.Disease2Accept.click();
+		diag.Diagnosis_Disease2Accept_Btn.click();
 		Thread.sleep(5000);
 		diag.FirstIcdCodeSelect.click();
-		diag.AcceptNextBtn.click();
+		diag.Diagnosis_AcceptNext_Btn.click();
 		Thread.sleep(5000);
 		diag.ContinueToMonitorCB.click();
 		diag.EkgCB.click();
@@ -60,12 +60,12 @@ public class DiagnosisTest extends TestAnnotation {
 		diag.ContinueCurrentTreatmentCB.click();
 		diag.MeatMedicationCB.click();
 		diag.MeatComments.sendKeys("This is a test comment.");
-		diag.MeatSaveChangesBtn.click();
+		diag.Meat_SaveChanges_Btn.click();
 
-		diag.Disease1Accept.click();
+		diag.Diagnosis_Disease1Accept_Btn.click();
 		Thread.sleep(5000);
 		diag.FirstIcdCodeSelect.click();
-		diag.AcceptNextBtn.click();
+		diag.Diagnosis_AcceptNext_Btn.click();
 		Thread.sleep(5000);
 		diag.ContinueToMonitorCB.click();
 		diag.EkgCB.click();
@@ -75,7 +75,7 @@ public class DiagnosisTest extends TestAnnotation {
 		diag.ContinueCurrentTreatmentCB.click();
 		diag.MeatMedicationCB.click();
 		diag.MeatComments.sendKeys("This is a test comment.");
-		diag.MeatSaveChangesBtn.click();
+		diag.Meat_SaveChanges_Btn.click();
 		try {
 			Assert.assertTrue(diag.AcceptedCount.getText().equals("Accepted - 3"), "Accept count is incorrect");
 			Assert.assertTrue(diag.RejectedCount.getText().equals("Rejected - 3"), "Reject count is incorrect");
@@ -91,7 +91,7 @@ public class DiagnosisTest extends TestAnnotation {
 	public void tc_td_2() throws InterruptedException {
 		common.implictWait(20);
 		Thread.sleep(10000);
-		diag.SaveNextBtn.click();
+		diag.Diagnosis_SaveNext_Btn.click();
 		Thread.sleep(15000);
 		diag.clickSignHra();
 		Thread.sleep(15000);

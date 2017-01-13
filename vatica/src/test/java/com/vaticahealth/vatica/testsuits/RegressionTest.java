@@ -42,7 +42,7 @@ public class RegressionTest extends TestAnnotation implements VaticaInterface {
 	public void optionsInSettings() throws InterruptedException {
 
 		Thread.sleep(2000);
-		home.settings.click();
+		home.Php_Settings_Btn.click();
 
 		java.util.List<WebElement> listOfColumns = home.getColumnsOnGrid();
 		System.out.println(listOfColumns);
@@ -79,7 +79,7 @@ public class RegressionTest extends TestAnnotation implements VaticaInterface {
 			Thread.sleep(3000);
 			invokeUrl();
 			login.loginWithCorrectCredentials(logIdSupp, logInvalidPasswordSupp);
-			login.loginButton();
+			login.Login_Login_Btn();
 		} catch (InterruptedException e) {
 			StringWriter w = new StringWriter();
 

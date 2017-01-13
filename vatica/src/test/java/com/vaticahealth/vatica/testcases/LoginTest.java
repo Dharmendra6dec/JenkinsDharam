@@ -18,7 +18,7 @@ public class LoginTest extends TestAnnotation {
 
 		common.implictWait(20);
 		login.loginWithCorrectCredentials(logIdSupp, logPassowrdSupp);
-		login.loginButton();
+		login.Login_Login_Btn();
 		Thread.sleep(5000);
 		common.selectByValue(login.webSiteOption, 2);
 		// Thread.sleep(3000);
@@ -40,7 +40,7 @@ public class LoginTest extends TestAnnotation {
 	public void tc_Login_4() throws InterruptedException {
 		login.loginFiller();
 		login.rememberMeCheckClick();
-		login.loginButton();
+		login.Login_Login_Btn();
 		login.websiteDropDown(intff);
 		Thread.sleep(2000);
 		login.selectWebsiteButton();

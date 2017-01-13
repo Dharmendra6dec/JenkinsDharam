@@ -10,6 +10,7 @@ import com.sun.jna.platform.win32.OaIdl.ELEMDESC;
 import com.vaticahealth.vatica.config.Configuration;
 import com.vaticahealth.vatica.utils.CommonCode;
 import com.vaticahealth.vatica.utils.Elements;
+import com.vaticahealth.vatica.utils.Button;
 
 public class CreateHRA {
 	WebDriver driver = Configuration.driver;
@@ -28,17 +29,17 @@ public class CreateHRA {
 	@FindBy(xpath = Elements.DOB_CV)
 	public WebElement DOB;
 
-	@FindBy(xpath = Elements.NEXTBTN)
-	public WebElement NextBtn;
+	@FindBy(xpath = Button.CreateHra_Next_Btn)
+	public WebElement CreateHra_Next_Btn;
 
 	@FindBy(xpath = Elements.CONFIRMPATIENTINSUREANCE)
 	public WebElement ConfirmPatientInsurance;
 
-	@FindBy(xpath = Elements.CONFIRMPATIENTBTN)
+	@FindBy(xpath = Button.CreateHra_ConfirmPatient_Btn)
 	public WebElement ConfirmPatientBtn;
 
-	@FindBy(xpath = Elements.CONFIRMHRABTN)
-	public WebElement ConfirmNewHraBtn;
+	@FindBy(xpath = Button.CreateHra_ConfirmHra_Btn)
+	public WebElement CreateHra_ConfirmHra_Btn;
 
 	@FindBy(xpath = Elements.FIRSTNAMEVALUE)
 	public WebElement FirstNameValue;
@@ -85,11 +86,11 @@ public class CreateHRA {
 	}
 	
 	public void clickConfirmNewHraButton() {
-		ConfirmNewHraBtn.click();
+		CreateHra_ConfirmHra_Btn.click();
 	}
 
 	public void clickNextButton() {
-		NextBtn.click();
+		CreateHra_Next_Btn.click();
 	}
 	
 	

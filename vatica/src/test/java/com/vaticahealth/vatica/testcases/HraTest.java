@@ -26,7 +26,7 @@ public class HraTest extends TestAnnotation {
 		hra.selectByValue(hra.Gender, Integer.parseInt(common.readExcel("hra", "Gender")));
 		hra.AspirinYes.click();
 		hra.HighBloodPressureMedYes.click();
-		hra.AddMedicine.click();
+		hra.CreateHra_AddMedicine_Btn.click();
 		hra.AddMedicine_Name.sendKeys(common.readExcel("hra", "Medicine to add"));
 		hra.AddMedicineDose.sendKeys(common.readExcel("hra", "Medicine dose"));
 		hra.selectByValue(hra.AddMedicineUnit, Integer.parseInt(common.readExcel("hra", "Medicine Unit")));
@@ -104,7 +104,7 @@ public class HraTest extends TestAnnotation {
 		common.implictWait(10);
 		hra.ReviewOfSymptomsLink.click();
 		Thread.sleep(5000);
-		hra.ROSAllNo.click();
+		hra.Hra_ReviewOfSymptomsAllNo_Button.click();
 		Thread.sleep(3000);
 
 	}
@@ -134,7 +134,7 @@ public class HraTest extends TestAnnotation {
 		common.implictWait(10);
 		hra.FallRiskLink.click();
 		Thread.sleep(5000);
-		hra.FallRiskAllNo.click();
+		hra.Hra_FallRiskAllNo_Btn.click();
 		Thread.sleep(3000);
 
 	}

@@ -153,7 +153,7 @@ public class PPPTest extends TestAnnotation {
 	// Verification of the PPP report of the PPP.
 	public void verifyPPP_Report_TabOnPPP() throws InterruptedException, AWTException {
 		common.implictWait(60);
-		ppp.Print_On__PPP_btn.click();
+		ppp.PPP_Print_btn.click();
 		Thread.sleep(20000);
 
 		Set<String> handles = driver.getWindowHandles();

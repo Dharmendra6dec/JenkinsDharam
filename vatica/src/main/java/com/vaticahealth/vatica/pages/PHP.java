@@ -35,6 +35,7 @@ import org.testng.annotations.Test;
 import com.vaticahealth.vatica.config.Configuration;
 import com.vaticahealth.vatica.utils.CommonCode;
 import com.vaticahealth.vatica.utils.Elements;
+import com.vaticahealth.vatica.utils.Button;
 import org.openqa.selenium.JavascriptExecutor;
 
 public class PHP {
@@ -54,14 +55,14 @@ public class PHP {
 	@FindBy(xpath = Elements.SEARCHFIRSTNAME)
 	public WebElement firstNameSearch;
 
-	@FindBy(xpath = Elements.SEARCHBUTTON)
-	public WebElement searchButton;
+	@FindBy(xpath = Button.Php_Search_Btn)
+	public WebElement Php_Search_Btn;
 
-	@FindBy(xpath = Elements.PAGETOFIRSTBUTTON)
-	public WebElement PageToFirstButton;
+	@FindBy(xpath = Button.Php_PageToFirst_Btn)
+	public WebElement Php_PageToFirst_Btn;
 
-	@FindBy(xpath = Elements.CLEARBUTTON)
-	public WebElement clearButton;
+	@FindBy(xpath = Button.Php_Clear_Btn)
+	public WebElement Php_Clear_Btn;
 
 	@FindBy(xpath = Elements.FIRSTNAME)
 	public WebElement firstName;
@@ -69,8 +70,8 @@ public class PHP {
 	@FindBy(xpath = Elements.SEARCHLASTNAME)
 	public WebElement lastNameSearch;
 
-	@FindBy(xpath = Elements.LASTPAGEBUTTON)
-	public WebElement lastPageButton;
+	@FindBy(xpath = Button.Php_LastPage_Btn)
+	public WebElement Php_LastPage_Btn;
 
 	@FindAll(@FindBy(xpath = Elements.LASTRECORDPARENT))
 	public List<WebElement> lastRecordParent;
@@ -93,8 +94,8 @@ public class PHP {
 	@FindBy(xpath = Elements.SEARCHDOBTEXT)
 	public WebElement dobTextSearch;
 
-	@FindBy(xpath = Elements.TRAVERSEMONTHYEAR)
-	public WebElement traversedmonthYear;
+	@FindBy(xpath = Button.Php_TraverseMonthYear_Btn)
+	public WebElement Php_TraverseMonthYear_Btn;
 
 	@FindBy(xpath = Elements.ADDNEWVISIT)
 	public WebElement AddNewVisitBtn;
@@ -141,11 +142,11 @@ public class PHP {
 	@FindBy(xpath = Elements.PHPNORECORD)
 	public WebElement noRecordfound;
 
-	@FindBy(xpath = Elements.FIRSTPAGEBUTTON)
-	public WebElement moveToFirstPage;
+	@FindBy(xpath = Button.Php_FirstPage_Btn)
+	public WebElement Php_FirstPage_Btn;
 
-	@FindBy(xpath = Elements.SETTINGS)
-	public WebElement settings;
+	@FindBy(xpath = Button.Php_Settings_Btn)
+	public WebElement Php_Settings_Btn;
 
 	@FindBy(xpath = Elements.SETTINGSCHANGESITE)
 	public WebElement SettingsChangeSite;
@@ -159,20 +160,20 @@ public class PHP {
 	@FindBy(xpath = Elements.VISITDATECOLUMNGRID)
 	public WebElement VisitDateColumnGrid;
 
-	@FindBy(xpath = Elements.NEXTBTNONGRID)
-	public WebElement NextBtnOnGrid;
+	@FindBy(xpath = Button.Php_NextOnGrid_Btn)
+	public WebElement Php_NextOnGrid_Btn;
 
-	@FindBy(xpath = Elements.PRINTFIRSTREPORTBUTTON)
-	public WebElement printFirstHraReportButton;
+	@FindBy(xpath = Button.Php_PrintFirstReport_Btn)
+	public WebElement Php_PrintFirstReport_Btn;
 
 	@FindBy(xpath = Elements.SELECTREPORT)
 	public WebElement selectReport;
 
-	@FindBy(xpath = Elements.EXPORTDATABUTTON)
-	public WebElement exportDataButton;
+	@FindBy(xpath = Button.Php_ExportData_Btn)
+	public WebElement Php_ExportData_Btn;
 
-	@FindBy(xpath = Elements.DONEBUTTON)
-	public WebElement doneButton;
+	@FindBy(xpath = Button.Php_Done_Btn)
+	public WebElement Php_Done_Btn;
 
 	@FindBy(xpath = Elements.ITEMSPERPAGE)
 	public WebElement itemsPerPage;
@@ -329,7 +330,7 @@ public class PHP {
 		try {
 			Thread.sleep(5000);
 
-			lastPageButton.click();
+			Php_LastPage_Btn.click();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -356,7 +357,7 @@ public class PHP {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		clearButton.click();
+		Php_Clear_Btn.click();
 	}
 	
 	public void searchForTestHra() throws InterruptedException {
@@ -396,7 +397,7 @@ public class PHP {
 	}
 
 	public void searchButton() {
-		searchButton.click();
+		Php_Search_Btn.click();
 	}
 
 	public void clickChangeSettings() {
@@ -444,12 +445,12 @@ public class PHP {
 		searchButton();
 		Thread.sleep(5000);
 
-		printFirstHraReportButton.click();
+		Php_PrintFirstReport_Btn.click();
 		common.explictWaitPresence(5, By.xpath(Elements.SELECTREPORT));
 		common.selectByValue(selectReport, 0);
-		exportDataButton.click();
+		Php_ExportData_Btn.click();
 		Thread.sleep(20000);
-		doneButton.click();
+		Php_Done_Btn.click();
 		Thread.sleep(5000);
 
 		Set<String> handles = driver.getWindowHandles();
@@ -478,12 +479,12 @@ public class PHP {
 		Thread.sleep(5000);
 
 		Thread.sleep(5000);
-		printFirstHraReportButton.click();
+		Php_PrintFirstReport_Btn.click();
 		common.explictWaitPresence(5, By.xpath(Elements.SELECTREPORT));
 		common.selectByValue(selectReport, 1);
-		exportDataButton.click();
+		Php_ExportData_Btn.click();
 		Thread.sleep(20000);
-		doneButton.click();
+		Php_Done_Btn.click();
 		Thread.sleep(5000);
 
 		Set<String> handles = driver.getWindowHandles();
@@ -645,8 +646,8 @@ public class PHP {
 
 		while (true) {
 			listOfFirstNames.addAll(getItemsFromGrid(Elements.FIRSTNAMESONGRID));
-			if (NextBtnOnGrid.isDisplayed() && NextBtnOnGrid.isEnabled()) {
-				NextBtnOnGrid.click();
+			if (Php_NextOnGrid_Btn.isDisplayed() && Php_NextOnGrid_Btn.isEnabled()) {
+				Php_NextOnGrid_Btn.click();
 				Thread.sleep(3000);
 			} else {
 				break;
@@ -657,7 +658,7 @@ public class PHP {
 		for (int i = 0; i < listOfFirstNames.size(); i++) {
 			// System.out.println(listOfFirstNames.get(i).toString());
 		}
-		PageToFirstButton.click();
+		Php_PageToFirst_Btn.click();
 		return listOfFirstNames;
 	}
 
@@ -671,8 +672,8 @@ public class PHP {
 
 		while (true) {
 			listOfLastNames.addAll(getItemsFromGrid(Elements.LASTNAMESONGRID));
-			if (NextBtnOnGrid.isDisplayed() && NextBtnOnGrid.isEnabled()) {
-				NextBtnOnGrid.click();
+			if (Php_NextOnGrid_Btn.isDisplayed() && Php_NextOnGrid_Btn.isEnabled()) {
+				Php_NextOnGrid_Btn.click();
 				Thread.sleep(3000);
 			} else {
 				break;
@@ -683,7 +684,7 @@ public class PHP {
 		for (int i = 0; i < listOfLastNames.size(); i++) {
 			System.out.println(listOfLastNames.get(i).toString());
 		}
-		PageToFirstButton.click();
+		Php_PageToFirst_Btn.click();
 		return listOfLastNames;
 	}
 
@@ -697,8 +698,8 @@ public class PHP {
 
 		while (true) {
 			listOfVisitDates.addAll(getItemsFromGrid(Elements.VISITDATEONGRID));
-			if (NextBtnOnGrid.isDisplayed() && NextBtnOnGrid.isEnabled()) {
-				NextBtnOnGrid.click();
+			if (Php_NextOnGrid_Btn.isDisplayed() && Php_NextOnGrid_Btn.isEnabled()) {
+				Php_NextOnGrid_Btn.click();
 				Thread.sleep(3000);
 			} else {
 				break;
@@ -709,7 +710,7 @@ public class PHP {
 		for (int i = 0; i < listOfVisitDates.size(); i++) {
 			System.out.println(listOfVisitDates.get(i).toString());
 		}
-		PageToFirstButton.click();
+		Php_PageToFirst_Btn.click();
 		return listOfVisitDates;
 	}
 
@@ -749,7 +750,7 @@ public class PHP {
 
 	public void clickSettings() {
 		// TODO Auto-generated method stub
-		settings.click();
+		Php_Settings_Btn.click();
 	}
 
 }
