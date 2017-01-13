@@ -14,7 +14,7 @@ import junit.framework.Assert;
 public class LoginTest extends TestAnnotation {
 	// CommonCode common = new CommonCode();
 
-	// Login in to the application with correct credentials and select the
+	// Login into the application with correct credentials and select the
 	// website 'Plus' from the dropdown of sites.
 	public void tc_Login_1() throws InterruptedException, InvocationTargetException {
 
