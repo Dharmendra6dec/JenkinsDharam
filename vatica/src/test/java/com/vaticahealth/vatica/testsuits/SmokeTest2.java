@@ -20,31 +20,17 @@ public class SmokeTest2 extends TestAnnotation implements VaticaInterface {
 		common.implictWait(60);
 		loginTest.tc_Login_1();
 
-		home.searchHraWithFirstName("Goku");
-
-		home.GridPppBtn.click();
-
-		pppTest.verifyHeaderOf_PPPTab();
-		pppTest.verifyTextOfLinksOnPPP();
-		pppTest.verifyDataOn_Introduction_TabOnPPP();
-		pppTest.verifyDataOn_CurrentHealthAnalysis_TabOnPPP();
-		pppTest.verifyDataOn_PersonalisedHealthAdvice_TabOnPPP();
-		pppTest.verifyDataOn_ScreeningSchedule_TabOnPPP();
-		pppTest.verifyDataOn_CommunityBasedResources_TabOnPPP();
-
-		pppTest.verifyPPP_Report_TabOnPPP();
-
 	}
 
-	/*
-	 * @Test(priority = 2) public void QuitDriver() throws AddressException,
-	 * MessagingException{
-	 * 
-	 * //send mail MonitoringMail mail = new MonitoringMail();
-	 * mail.sendMail(MailConfig.server, MailConfig.from, MailConfig.to,
-	 * MailConfig.subject, MailConfig.messageBody, MailConfig.attachmentPath,
-	 * MailConfig.attachmentName); //driver.quit();
-	 * 
-	 * }
-	 */
+	
+	  @Test(priority = 2) 
+	  public void test2() throws InterruptedException {
+		  common.implictWait(60);
+		  home.click_Training_Resources();
+		  trainTest.verify_TR_Header();
+		  trainTest.Verify_Links_TRtab_text();
+		  trainTest.verify_FAQ_Link_Check();
+	  
+	  }
+	 
 }

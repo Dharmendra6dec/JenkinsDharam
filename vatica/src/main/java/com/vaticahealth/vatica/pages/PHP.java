@@ -44,6 +44,12 @@ public class PHP {
 
 	@FindBy(xpath = Elements.logOut)
 	public WebElement logOut;
+	
+	@FindBy(xpath = Elements.Home_Provider_Resources_Btn)
+	public WebElement Home_Provider_Resources_Btn;
+	
+	@FindBy(xpath = Elements.Home_Training_Resources_Btn)
+	public WebElement Home_Training_Resources_Btn;
 
 	@FindBy(xpath = Elements.FIRSTHRAONGRID)
 	public WebElement FirstHraOnGrid;
@@ -227,6 +233,31 @@ public class PHP {
 		Thread.sleep(2000);
 		return siteOnPhp.getText();
 
+	}
+	
+	public void click_Provider_Resources() {
+		Home_Provider_Resources_Btn.click();
+		try {
+			Thread.sleep(7000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void click_Training_Resources() {
+		common.implictWait(20);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Home_Training_Resources_Btn.click();
+		try {
+			Thread.sleep(7000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Double Clicking on First Hra from the PHP.
@@ -429,7 +460,7 @@ public class PHP {
 		s.selectByVisibleText(suppVisitType);
 	}
 
-	public void pdfReport() throws InterruptedException, AWTException {
+	public void pdfReport_Of_Test_Hra() throws InterruptedException, AWTException {
 		Thread.sleep(5000);
 
 		common.implictWait(10);

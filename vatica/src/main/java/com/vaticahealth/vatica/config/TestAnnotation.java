@@ -8,6 +8,7 @@ import com.vaticahealth.vatica.pages.Diagnosis;
 import com.vaticahealth.vatica.pages.PHP;
 import com.vaticahealth.vatica.pages.PPP;
 import com.vaticahealth.vatica.pages.Tests;
+import com.vaticahealth.vatica.pages.TrainingResources;
 import com.vaticahealth.vatica.testcases.HraTest;
 import com.vaticahealth.vatica.testcases.LoginTest;
 import com.vaticahealth.vatica.testcases.PHPTest;
@@ -27,6 +28,7 @@ public class TestAnnotation {
 	protected Hra hra = new Hra();
 	protected Diagnosis diag = new Diagnosis();
 	protected PPP ppp = new PPP();
+	protected TrainingResources train = new TrainingResources();
 	
 
 	public String logIdSupp = common.readExcel("get_values", "loginId");

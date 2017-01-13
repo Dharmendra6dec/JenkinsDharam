@@ -1,7 +1,9 @@
 package com.vaticahealth.vatica.testcases;
 
+import java.awt.AWTException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -285,4 +287,26 @@ public class PHPTest extends TestAnnotation {
 
 	}
 
+	// Click for PDF report and download it to verify
+	public void tc_php_pdf_Report() throws InterruptedException, AWTException {
+		Thread.sleep(5000);
+
+		home.printFirstHraReportButton.click();
+		common.explictWaitPresence(5, By.xpath(Elements.SELECTREPORT));
+		common.selectByValue(home.selectReport, 0);
+		home.exportDataButton.click();
+		Thread.sleep(20000);
+		home.doneButton.click();
+		Thread.sleep(5000);
+
+		Set<String> handles = driver.getWindowHandles();
+		String win1 = driver.getWindowHandle();
+		handles.remove(win1);
+		String win2 = handles.iterator().next();
+		driver.switchTo().window(win2);
+		common.keyboard_Ctrl_S(driver);
+		driver.close();
+		driver.switchTo().window(win1);
+
+	}
 }

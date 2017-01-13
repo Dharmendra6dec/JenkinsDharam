@@ -77,8 +77,9 @@ public class PPPTest extends TestAnnotation {
 			Assert.assertTrue(elle.get(i).getText().equals(common.readExcel("ppp", "PPP key " + (i + 1) + "")),
 					elle.get(i).getText() + " is not matching");
 
-			System.out.println(elle2.get(i).getText());
-			System.out.println(common.readExcel("ppp", "PPP value " + (i + 1) + ""));
+			// System.out.println(elle2.get(i).getText());
+			// System.out.println(common.readExcel("ppp", "PPP value " + (i + 1)
+			// + ""));
 			Assert.assertTrue(elle2.get(i).getText().equals(common.readExcel("ppp", "PPP value " + (i + 1) + "")),
 					elle2.get(i).getText() + " is not matching");
 		}
@@ -118,6 +119,7 @@ public class PPPTest extends TestAnnotation {
 	public void verifyDataOn_ScreeningSchedule_TabOnPPP() {
 		common.implictWait(60);
 		ppp.Screening_Schedule_link.click();
+		List<WebElement> elle = ppp.Screening_Schedule_Suggested_Tests_text;
 
 		common.explictWaitClickable(10, ppp.Screening_Schedule_img);
 
@@ -130,6 +132,16 @@ public class PPPTest extends TestAnnotation {
 		} catch (org.openqa.selenium.TimeoutException e) {
 			System.out.println("PPP Screening Schedule image didn't load on time.");
 		}
+
+		for (int i = 0; i < 3; i++) {
+			Assert.assertTrue(elle.get(i).getText().equals(common.readExcel("ppp", "Suggested Test " + (i + 1) + "")),
+					elle.get(i).getText() + " is not matching");
+		}
+
+		Assert.assertTrue(ppp.Screening_Schedule_Colonoscopy_Next_Date_text.getText()
+				.equals(common.readExcel("ppp", "Colonoscopy Next Date")), "Colonoscopy next date is not matching.");
+		Assert.assertTrue(ppp.Screening_Schedule_Diabetes_Next_Date_text.getText()
+				.equals(common.readExcel("ppp", "Diabetes Next Date")), "Diabetes next date is not matching.");
 	}
 
 	// Verification on the Community Based Resources tab of the PPP.
@@ -149,7 +161,7 @@ public class PPPTest extends TestAnnotation {
 		}
 
 	}
-	
+
 	// Verification of the PPP report of the PPP.
 	public void verifyPPP_Report_TabOnPPP() throws InterruptedException, AWTException {
 		common.implictWait(60);
@@ -161,12 +173,13 @@ public class PPPTest extends TestAnnotation {
 		handles.remove(win1);
 		String win2 = handles.iterator().next();
 		driver.switchTo().window(win2);
-		
-		Assert.assertTrue(ppp.PPP_Report_Header_text.getText().equals(common.readExcel("ppp", "PPP Report Header")), 
+
+		Assert.assertTrue(ppp.PPP_Report_Header_text.getText().equals(common.readExcel("ppp", "PPP Report Header")),
 				"PPP Report's header is not matching");
-		Assert.assertTrue(ppp.PPP_Report_PatientName_text.getText().equals(common.readExcel("ppp", "Introduction Name")), 
+		Assert.assertTrue(
+				ppp.PPP_Report_PatientName_text.getText().equals(common.readExcel("ppp", "Introduction Name")),
 				"PPP Report's header is not matching");
-	
+
 		common.keyboard_Ctrl_S(driver);
 		driver.close();
 		driver.switchTo().window(win1);

@@ -52,7 +52,6 @@ public class SmokeTest extends TestAnnotation implements VaticaInterface {
 		hraTest.tc_Hra_ROS_1();
 		hraTest.tc_Hra_SelfAssessment_1();
 		hraTest.tc_Hra_FallRisk_1();
-		
 		hraTest.tc_Hra_CognitiveAssessment_1();
 	}
 
@@ -76,7 +75,7 @@ public class SmokeTest extends TestAnnotation implements VaticaInterface {
 	public void smokeTest_home_tcs() throws InvocationTargetException, InterruptedException, AWTException {
 		common.implictWait(20);
 		phpTest.verifyOneRowOnPhp();
-		home.pdfReport();
+		home.pdfReport_Of_Test_Hra();
 		home.plainTextReport();
 		phpTest.logout();
 

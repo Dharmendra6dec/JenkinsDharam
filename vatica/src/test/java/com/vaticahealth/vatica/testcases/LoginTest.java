@@ -9,6 +9,8 @@ import com.vaticahealth.vatica.config.TestAnnotation;
 import com.vaticahealth.vatica.pages.Login;
 import com.vaticahealth.vatica.utils.CommonCode;
 
+import junit.framework.Assert;
+
 public class LoginTest extends TestAnnotation {
 	// CommonCode common = new CommonCode();
 
@@ -28,16 +30,28 @@ public class LoginTest extends TestAnnotation {
 
 	// Clicking on privacy policy and confirming the page title
 	public void tc_Login_2() {
-		login.privacyPolicy(common.readExcel("hra", "Privacy Title"));
+		common.implictWait(40);
+		login.privacPolicyLink.click();
+		String ExpText = common.readExcel("get_values", "PrivacyPolicyTitle");
+		Assert.assertTrue(login.Login_PrivacyPolicy_text.getText().equals(ExpText));
+		login.Login_PrivacyPolicy_Close_Btn.click();
+
 	}
 
 	// Clicking on Technical Support / Get Help and confirming the page title
 	public void tc_Login_3() throws InterruptedException {
-		login.technicalSupportLink(common.readExcel("hra", "Technical Support Title"));
+		common.implictWait(40);
+		login.techSupportLink.click();
+		String ExpText = common.readExcel("get_values", "TechSupportTitle");
+		System.out.println("ok"+ExpText+"ok");
+		System.out.println(login.Login_TechSupport_text.getText());
+		Assert.assertTrue(login.Login_TechSupport_text.getText().equals(ExpText));
+		login.Login_PrivacyPolicy_Close_Btn.click();
 	}
 
 	// Login memory check
 	public void tc_Login_4() throws InterruptedException {
+		common.implictWait(40);
 		login.loginFiller();
 		login.rememberMeCheckClick();
 		login.loginButton();

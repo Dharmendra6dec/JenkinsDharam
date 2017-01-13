@@ -285,6 +285,25 @@ public class CommonCode {
 		elle2.sendKeys(Keys.TAB);
 
 	}
+	
+	public void switchToNewWindow() {
+
+		Set<String> handles = driver.getWindowHandles();
+		String win1 = driver.getWindowHandle();
+		handles.remove(win1);
+		String win2 = handles.iterator().next();
+		driver.switchTo().window(win2);
+	}
+	
+	public void closeAndswitchToNewWindow() {
+
+		Set<String> handles = driver.getWindowHandles();
+		String win1 = driver.getWindowHandle();
+		handles.remove(win1);
+		String win2 = handles.iterator().next();
+		driver.close();
+		driver.switchTo().window(win2);
+	}
 
 	// Double Clicking on any webelement
 	public void doubleClick(WebDriver driver, WebElement elle) throws InterruptedException {
